@@ -7,7 +7,7 @@ class Conectar{
     protected function Conexion(){
         try {
             //cadena de conexión
-            $conectar = $this->dbh = new PDO("mysql:local=loclahost; dbname=crud", "root", "");
+            $conectar = $this->dbh = new PDO("mysql:local=localhost; dbname=crud", "root", "");
 
             return $conectar;
 
@@ -18,7 +18,7 @@ class Conectar{
     }
 
     public function set_names(){
-        return $this->dbh->query("GET NAMES 'utf8'");
+        return $this->dbh->query("SET NAMES 'utf8'");
     }
 }
 
