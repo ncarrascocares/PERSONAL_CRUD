@@ -13,8 +13,8 @@ switch ($_GET["op"]) {
         foreach ($datos as $row) {
             $sub_array = array();
             $sub_array[] = $row["prod_nom"];
-            $sub_array[] = '<button type"button" onClick="ver(' . $row["prod_id"] . ');" id="' . $row["prod_id"] . '" class="btn btn-inline-primary btn-sm ladda-button"><i class="fa fa-eye"></i></div></button>';
-            $sub_array[] = '<button type"button" onClick="ver(' . $row["prod_id"] . ');" id="' . $row["prod_id"] . '" class="btn btn-inline-primary btn-sm ladda-button"><i class="fa fa-eye"></i></div></button>';
+            $sub_array[] = '<button type"button" onClick="ver(' . $row["prod_id"] . ');" id="' . $row["prod_id"] . '" class="btn btn-outline-primary btn-icon"><i class="fa fa-edit"></i></div></button>';
+            $sub_array[] = '<button type"button" onClick="ver(' . $row["prod_id"] . ');" id="' . $row["prod_id"] . '" class="btn btn-outline-danger btn-sicon"><i class="fa fa-trash"></i></div></button>';
 
             $data[] = $sub_array;
         }
