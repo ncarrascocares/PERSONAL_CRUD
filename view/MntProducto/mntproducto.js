@@ -31,7 +31,7 @@ $(document).ready(function() {
         "bDestroy": true,
         "responsive": true,
         "bInfo": true,
-        "iDisplayLength": 2,
+        "iDisplayLength": 10,
         "autoWidth": false,
         "language": {
             "sProcessing": "Procesando...",
@@ -59,6 +59,22 @@ $(document).ready(function() {
         }
 
     }).DataTable();
+});
+
+
+
+function editar(prod_id) {
+    console.log(prod_id);
+}
+
+function eliminar(prod_id) {
+    console.log(prod_id);
+}
+
+//Llamando al modalmantenimiento a traves del boton nuevo registro que está en el index
+$(document).on("click", "#btnnuevo", function() {
+    $('#mdltitulo').html('Nuevo Registro');
+    $('#modalmantenimiento').modal('show');
 });
 
 init();
