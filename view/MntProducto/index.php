@@ -695,6 +695,10 @@
 
       <div class="br-section-wrapper">
         <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Mantenimineto de producto</h6>
+
+        <!--Boton que ejecuta el modalmantenimiento.php-->
+        <button id="btnnuevo" class="btn btn-outline-primary btn-block mg-b-10">Nuevo Registro</button>
+
         <hr>
         <div class="table-wrapper">
         <table id="producto_data" class="table display responsive nowrap">
@@ -714,6 +718,9 @@
   </div>
 
   <?php require_once("../../MainJs/js.php"); ?>
+  
+   <!--Llamanado al modalmantenimiento-->
+  <?php require_once("modalmantenimiento.php"); ?>
   <script type="text/javascript" src="mntproducto.js"></script>
 </body>
 
