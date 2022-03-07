@@ -68,7 +68,42 @@ function editar(prod_id) {
 }
 
 function eliminar(prod_id) {
-    console.log(prod_id);
+    swal.fire({
+        title: 'CRUD',
+        text: "Desea eliminar el registro?",
+        icon: 'error',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            //Se pasa el {prod_id} al controlador/producto.php en el case eliminar
+            $.post("../../controller/producto.php?op=eliminar", { prod_id: prod_id }, function(data) {});
+            //una vez ejecutado la opcón eliminar se realiza una actualización en la tabla "id=producto_data" del index
+            $('#producto_data').DataTable().ajax.reload();
+
+            swal.fire(
+                'Eliminado!',
+                'Se elimino de manera correcta!',
+                'success'
+
+            )
+        } else if (
+
+
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+
+            swal.fire(
+                'Cancelado',
+                'Se ha cancelado la opción eliminar :)',
+                'error'
+            )
+        }
+    });
 }
 
 //Llamando al modalmantenimiento a traves del boton nuevo registro que está en el index
