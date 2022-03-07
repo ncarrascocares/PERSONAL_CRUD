@@ -69,7 +69,7 @@ switch ($_GET["op"]) {
     break;
 
     case "eliminar":
-        $producto->delete_produto($prod_id);
+        $producto->delete_produto($_POST["prod_id"]);
     break;
     
 
