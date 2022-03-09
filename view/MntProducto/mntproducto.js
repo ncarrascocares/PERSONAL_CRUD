@@ -74,7 +74,7 @@ function guardaryeditar(e) {
         contentType: false,
         processData: false,
         success: function(datos) {
-            console.log(datos);
+            //console.log(datos);
             $('#producto_form')[0].reset();
             $('#modalmantenimiento').modal('hide');
             $('#producto_data').DataTable().ajax.reload();
@@ -90,7 +90,22 @@ function guardaryeditar(e) {
 
 
 function editar(prod_id) {
-    console.log(prod_id);
+    //console.log(prod_id);
+    //Al pinchar el boton editar se cambiara el titulo del modalmantenimineto.php
+    $('#mdltitulo').html("  Editar Registro");
+
+    $.post("../../controller/producto.php?op=mostrar", { prod_id: prod_id }, function(data) {
+        data = JSON.parse(data);
+        //console.log(data);
+        //asignamos un valor
+        $('#prod_id').val(data.prod_id);
+        $('#prod_nom').val(data.prod_nom);
+
+    });
+
+    //y se llamara al modal 
+    $('#modalmantenimiento').modal('show');
+
 }
 
 function eliminar(prod_id) {
@@ -135,6 +150,8 @@ function eliminar(prod_id) {
 //Llamando al modalmantenimiento a traves del boton nuevo registro que está en el index
 $(document).on("click", "#btnnuevo", function() {
     $('#mdltitulo').html('Nuevo Registro');
+    $('#producto_form')[0].reset();
+    $('#prod_id').val('');
     $('#modalmantenimiento').modal('show');
 });
 
