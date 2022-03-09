@@ -38,7 +38,7 @@
             return $resultado=$sql->fetchAll();
         }
 
-        public function insert_produto($prod_nom){
+        public function insert_producto($prod_nom){
 
             //Creacion de variables que extienden desde la clase Conectar
             $conectar = parent::conexion();
@@ -52,7 +52,7 @@
             return $resultado=$sql->fetchAll();
         }
 
-        public function update_produto($prod_id, $prod_nom){
+        public function update_producto($prod_id, $prod_nom){
 
             //Creacion de variables que extienden desde la clase Conectar
             $conectar = parent::conexion();
