@@ -33,21 +33,22 @@ switch ($_GET["op"]) {
     case "guardaryeditar":
         //como desde la vista se vana enviar datos a nuestro controlador, aca se recibiran a traves de un post
         //el parametro que recibiremos es el post_id
-        $datos = $producto->get_produto_x_id($_POST['prod_id']);
+        $datos = $producto->get_produto_x_id($_POST["prod_id"]);
 
         //Luego preguntamos si prod_id esta vacio
-        if (empty($_POST['prod_id'])) {
+        if (empty($_POST["prod_id"])) {
 
             //Acá hacemos otra validación adicional
             //Si datos no trajo ningún registro o ningún array
             if (is_array($datos) == true and count($datos) == 0) {
                 //acá se realiza un insert y se entrega los parametros necesarios, en este caso 1 
-                $producto->insert_produto($_POST['prod_nom']);
+                $producto->insert_producto($_POST["prod_nom"]);
+            }
+            
             }else{
                 //caso contrario se realiza un editar y se entregan los parametros necesarios, en este caso necesita 2 para realizar la sentencia creada en el modelo
-                $producto->update_produto($_POST['prod_id'], $_POST['prod_nom']);
+                $producto->update_producto($_POST["prod_id"], $_POST["prod_nom"]);
             }
-        }
 
     break;
 
@@ -55,7 +56,7 @@ switch ($_GET["op"]) {
     case "mostrar":
      //¿Que va a realizar este case mostrar?
         //Va a traer todos los datos y los va a separar en un json
-        $datos = $producto->get_produto_x_id($_POST['prod_id']);
+        $datos = $producto->get_produto_x_id($_POST["prod_id"]);
           //Si datos tiene información
           if (is_array($datos) == true and count($datos) > 0) {
             
@@ -64,6 +65,9 @@ switch ($_GET["op"]) {
                 $salida["prod_id"] = $row["prod_id"];
                 $salida["prod_nom"] = $row["prod_nom"];
             }
+
+            //enviamos la información a traves de un json
+            echo json_encode($salida);
         }
 
     break;
