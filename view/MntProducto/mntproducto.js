@@ -100,6 +100,7 @@ function editar(prod_id) {
         //asignamos un valor
         $('#prod_id').val(data.prod_id);
         $('#prod_nom').val(data.prod_nom);
+        $('#prod_desc').val(data.prod_desc);
 
     });
 

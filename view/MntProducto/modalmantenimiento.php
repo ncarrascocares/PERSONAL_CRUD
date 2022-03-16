@@ -12,6 +12,9 @@
                         <!-- <label class="form-label" for="prod_nom">Nombre</label> -->
                         <input type="text" class="form-control" id="prod_nom" name="prod_nom" placeholder="Ingrese Nombre" required>
                     </div>
+                    <div class="form-group">
+                        <textarea cols="30" rows="3" id="prod_desc" name="prod_desc" placeholder="Ingrese Descripción" required></textarea>
+                    </div>
                 </div>
 
                 <div class="modal-footer">
